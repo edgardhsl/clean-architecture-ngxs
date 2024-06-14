@@ -1,5 +1,5 @@
 import { UserDTO } from "@/data/dtos/user/user.dto";
-import { CreateUser } from "@/store/actions/user.action";
+import { CreateUser } from "@/data/store/actions/user.action";
 import { SnackbarService } from "@aiandralves/tivic-ui";
 import { Component, inject } from "@angular/core";
 import { Router } from "@angular/router";

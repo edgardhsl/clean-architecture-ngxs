@@ -1,18 +1,15 @@
 import { UserDTO, makeUser } from "@/data/dtos/user/user.dto";
+import { sharedModule } from "@/presentation/shared/shared.module";
 import { CustomFormBuilder, FormType, PasswordValidator, RegexHelper } from "@aiandralves/tivic-ui";
 import { ChangeDetectionStrategy, Component, OnInit, inject, input, output } from "@angular/core";
-import { FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { MatButtonModule } from "@angular/material/button";
+import { FormGroup, Validators } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { RouterLink } from "@angular/router";
 
 const modules = [
-    ReactiveFormsModule,
-    MatButtonModule,
+    ...sharedModule,
     MatFormFieldModule,
-    MatInputModule,
-    RouterLink
+    MatInputModule
 ];
 
 @Component({
@@ -36,7 +33,6 @@ export class UserFormComponent implements OnInit {
     ngOnInit () {
         if (this.user()?.id !== undefined) {
             this._customFormBuilder.update(this.formGroup, makeUser(this.user()));
-            console.log(this.formGroup.value);
             this.formGroup.disable();
         }
         this._setValidators();

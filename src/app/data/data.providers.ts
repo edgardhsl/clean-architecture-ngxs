@@ -1,4 +1,7 @@
-import { directorProviders } from "./providers/director.providers";
-import { userProvider } from "./providers/user.providers";
+import { clientProviders } from "./client/client.providers";
+import { storeProviders } from "./store/store.providers";
 
-export const dataProviders = [userProvider, directorProviders];
+export const dataProviders = [
+    clientProviders,
+    storeProviders
+];

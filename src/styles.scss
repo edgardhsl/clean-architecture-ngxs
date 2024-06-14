@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import "../node_modules/@aiandralves/tivic-ui/assets/theme/button";
+@import "../node_modules/@aiandralves/tivic-ui/assets/theme/input";
+@import "../node_modules/@aiandralves/tivic-ui/assets/theme/snackbar";
 
 * {
     font-family:
@@ -20,6 +22,13 @@ body {
 
 .main {
     @apply container h-auto w-[800px] bg-white rounded-lg py-4 px-6 mt-[calc(64px+1rem)];
+}
+
+.fx-column {
+    @apply flex flex-col gap-y-4 w-full;
+}
+.fx-row {
+    @apply flex items-center gap-x-4;
 }
 
 .mat-mdc-form-field {

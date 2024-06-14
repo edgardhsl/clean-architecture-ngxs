@@ -1,22 +1,16 @@
 {
   "users": [
     {
-      "id": "01",
-      "name": "Aiandra Alves",
-      "email": "aiandraalves@tivic.com.br",
-      "password": "Bola123@"
-    },
-    {
-      "name": "Maone Barbosa",
-      "email": "maone@tivic.com",
+      "name": "Aiandra Meira",
+      "email": "aiandra@tivic.com.br",
       "password": "Bola123@",
-      "id": "83a2"
+      "id": "a89a"
     },
     {
-      "id": "19e3",
       "name": "Camila Anjos",
-      "email": "camila.anjos@tivic.com",
-      "password": "Bola123@"
+      "email": "camila.anjos@tivic.com.br",
+      "password": "Bala123@",
+      "id": "973a"
     }
   ]
 }

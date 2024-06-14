@@ -1,7 +1,6 @@
 import { UserDTO } from "@/data/dtos/user/user.dto";
 
-export interface UserStateModel {
+export class UserStateModel {
     users: UserDTO[];
     user: UserDTO;
-    loaded: boolean;
 }

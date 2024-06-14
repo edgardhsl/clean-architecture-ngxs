@@ -1,19 +1,15 @@
 import { UserDTO } from "@/data/dtos/user/user.dto";
-import { FindUser } from "@/store/actions/user.action";
-import { UserState } from "@/store/states/user.state";
+import { FindUser } from "@/data/store/actions/user.action";
+import { UserState } from "@/data/store/states/user.state";
+import { sharedModule } from "@/presentation/shared/shared.module";
 import { ChangeDetectionStrategy, Component, Signal, inject } from "@angular/core";
-import { MatButtonModule } from "@angular/material/button";
-import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
-import { Router, RouterLink } from "@angular/router";
-
+import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
 
 const modules = [
-    MatIconModule,
-    MatButtonModule,
-    MatTableModule,
-    RouterLink
+    ...sharedModule,
+    MatTableModule
 ];
 
 @Component({

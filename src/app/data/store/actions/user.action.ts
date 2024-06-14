@@ -12,11 +12,13 @@ export class CreateUser {
 export class UpdateUser {
     static readonly type = `${scope} Update`;
 
-    constructor (public id: string, public payload: UpdateUserDTO) {}
+    constructor (public payload: UpdateUserDTO) {}
 }
 
 export class FindUser {
-    static readonly type = `${scope} Fetch`;
+    static readonly type = `${scope} Find`;
+
+    constructor (public payload?: any) {}
 }
 
 export class GetUser {

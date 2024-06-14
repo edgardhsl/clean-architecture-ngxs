@@ -7,17 +7,18 @@ module.exports = {
             important: true,
             container: {
                 center: true,
-                padding: "2rem",
+                padding: "2rem"
             },
             screens: {
                 sm: "640px",
                 md: "768px",
                 lg: "1024px",
-                xl: "1280px",
+                xl: "1280px"
             },
             fontFamily: {
                 title: ["Lexend, sans-serif"],
                 text: ["Nunito Sans, sans-serif"],
+                material: ["Material Icons"]
             },
             colors: {
                 primary: "#020024",
@@ -30,9 +31,9 @@ module.exports = {
                 "dark-body": "#1a2035",
                 "dark-container": "#202940",
                 "dark-text": "#8b92a9",
-                "dark-border": "#2b3040",
-            },
-        },
+                "dark-border": "#2b3040"
+            }
+        }
     },
-    plugins: [],
+    plugins: []
 };

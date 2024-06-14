@@ -1,5 +1,5 @@
 import { UserDTO } from "@/data/dtos/user/user.dto";
-import { UpdateUser } from "@/store/actions/user.action";
+import { UpdateUser } from "@/data/store/actions/user.action";
 import { SnackbarService } from "@aiandralves/tivic-ui";
 import { Component, inject } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -22,7 +22,9 @@ export class UserUpdateComponent {
     user: UserDTO = inject(ActivatedRoute).snapshot.data.user;
 
     onSubmit (user: UserDTO) {
-        this._store.dispatch(new UpdateUser(this.user.id, user)).subscribe(() => {
+        user.id = this.user.id;
+
+        this._store.dispatch(new UpdateUser(user)).subscribe(() => {
             this._snackbar.success("Usuário atualizado com sucesso.");
             this._router.navigateByUrl("/usuarios");
         });
