@@ -1,6 +1,6 @@
 import { UserDTO, makeUser } from "@/data/dtos/user/user.dto";
 import { CustomFormBuilder, FormType, PasswordValidator, RegexHelper } from "@aiandralves/tivic-ui";
-import { ChangeDetectionStrategy, Component, Input, OnInit, inject, output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit, inject, input, output } from "@angular/core";
 import { FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -24,10 +24,8 @@ const modules = [
 })
 export class UserFormComponent implements OnInit {
     private _customFormBuilder = inject(CustomFormBuilder);
-    //user = input<UserDTO | null>(null);
+    user = input<UserDTO | null>(null);
     save = output<UserDTO>();
-
-    @Input() user: UserDTO | null = null
 
     formGroup: FormGroup<FormType<UserDTO>> = this._customFormBuilder.create(makeUser());
 
@@ -36,12 +34,12 @@ export class UserFormComponent implements OnInit {
     }
 
     ngOnInit () {
-        if (this.user?.id !== undefined) {
-            this._customFormBuilder.update(this.formGroup, makeUser(this.user));
-            console.log(this.formGroup.value)
+        if (this.user()?.id !== undefined) {
+            this._customFormBuilder.update(this.formGroup, makeUser(this.user()));
+            console.log(this.formGroup.value);
             this.formGroup.disable();
         }
-        //this._setValidators();
+        this._setValidators();
     }
 
     onSubmit () {
@@ -53,7 +51,7 @@ export class UserFormComponent implements OnInit {
         const validators = {
             name: [Validators.required, Validators.minLength(3)],
             email: [Validators.required, Validators.email],
-            password: [Validators.required, Validators.minLength(8), PasswordValidator.regex(RegexHelper.password)],
+            password: [Validators.required, Validators.minLength(8), PasswordValidator.regex(RegexHelper.password)]
         };
         this._customFormBuilder.setValidators(this.formGroup, validators);
     }
