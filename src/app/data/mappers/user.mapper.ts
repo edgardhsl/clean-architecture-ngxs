@@ -1,4 +1,4 @@
-import { Mapper } from "@/core/base/mapper";
+import { Mapper } from "@/data/base/mapper";
 import { UserDTO } from "@/data/dtos/user/user.dto";
 import { User } from "@/domain/entities/user";
 

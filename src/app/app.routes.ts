@@ -9,10 +9,5 @@ export const routes: Routes = [
         path: "usuarios",
         loadChildren: () => import("./presentation/views/user/user.routes").then(r => r.userRoutes),
         component: NavbarComponent
-    },
-    {
-        path: "diretores",
-        loadChildren: () => import("./presentation/views/director/director.routes").then(r => r.directorRoutes),
-        component: NavbarComponent
     }
 ];
