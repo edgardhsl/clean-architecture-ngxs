@@ -11,7 +11,7 @@ import { DirectorStoreRepository } from "../repositories/director-store.reposito
     name: "director",
     defaults: {
         directors: [],
-        director: {} as DirectorDTO,
+        director: {} as DirectorDTO
     }
 })
 @Injectable()
@@ -39,7 +39,9 @@ export class DirectorState implements DirectorStoreRepository {
     }
 
     @Action(GetDirector)
-    get ({ getState, setState }: StateContext<DirectorStateModel>, { id }: GetDirector): Observable<DirectorDTO> | undefined {
+    get (
+        { getState, setState }: StateContext<DirectorStateModel>, { id }: GetDirector
+    ): Observable<DirectorDTO> | undefined {
         const state = getState();
         const directors = state.directors;
         const director = directors.findIndex((director: DirectorDTO) => director.id === id);
@@ -56,7 +58,9 @@ export class DirectorState implements DirectorStoreRepository {
     }
 
     @Action(CreateDirector)
-    create ({ getState, patchState }: StateContext<DirectorStateModel>, { payload }: CreateDirector): Observable<DirectorDTO> {
+    create (
+        { getState, patchState }: StateContext<DirectorStateModel>, { payload }: CreateDirector
+    ): Observable<DirectorDTO> {
         return this._directorService.create(payload).pipe(
             tap(director => {
                 const state = getState();
@@ -66,7 +70,9 @@ export class DirectorState implements DirectorStoreRepository {
     }
 
     @Action(UpdateDirector)
-    update ({ getState, patchState }: StateContext<DirectorStateModel>, { id, payload }: UpdateDirector): Observable<DirectorDTO> {
+    update (
+        { getState, patchState }: StateContext<DirectorStateModel>, { id, payload }: UpdateDirector
+    ): Observable<DirectorDTO> {
         return this._directorService.update(id, payload).pipe(
             tap(() => {
                 const state = getState();

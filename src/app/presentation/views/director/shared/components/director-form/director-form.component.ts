@@ -7,17 +7,17 @@ import { FormControl, FormGroup } from "@angular/forms";
     selector: "director-form",
     standalone: true,
     imports: [...sharedModule],
-    templateUrl: "./director-form.component.html",
+    templateUrl: "./director-form.component.html"
 })
 export class DirectorFormComponent implements OnInit {
     director = input<DirectorDTO | null>(null);
 
     formGroup: FormGroup = new FormGroup({
         name: new FormControl<string>("", { nonNullable: true }),
-        description: new FormControl<string>("", { nonNullable: true }),
+        description: new FormControl<string>("", { nonNullable: true })
     });
 
-    ngOnInit() {
-        
+    ngOnInit () {
+
     }
 }

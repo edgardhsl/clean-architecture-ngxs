@@ -8,8 +8,8 @@ import { UserFormComponent } from "./user-form.component";
 describe("User Form Component", () => {
     let component: UserFormComponent;
     let fixture: ComponentFixture<UserFormComponent>;
-    let customFormBuilder: CustomFormBuilder<UserDTO>; 
-    
+    let customFormBuilder: CustomFormBuilder<UserDTO>;
+
     beforeEach(() => {
         const activatedRoute = {
             snapshot: {
@@ -30,7 +30,7 @@ describe("User Form Component", () => {
             create: jest.fn().mockReturnValue(formGroupMock),
             update: jest.fn(),
             setValidators: jest.fn()
-        }
+        };
 
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule],
@@ -38,21 +38,21 @@ describe("User Form Component", () => {
                 { provide: CustomFormBuilder, useValue: customFormBuilderMock },
                 { provide: ActivatedRoute, useValue: activatedRoute }
             ]
-        })
+        });
 
         fixture = TestBed.createComponent(UserFormComponent);
         component = fixture.componentInstance;
         customFormBuilder = TestBed.inject(CustomFormBuilder);
-    })
+    });
 
     it("should create the user form component dumb", () => {
         expect(component).toBeTruthy();
-    })
+    });
 
     it("should create formGroup", () => {
-        const formGroup = component.formGroup
-        
+        const formGroup = component.formGroup;
+
         expect(customFormBuilder.create).toHaveBeenCalledWith(makeUser());
         expect(formGroup.value).toBeTruthy();
     });
-})
+});

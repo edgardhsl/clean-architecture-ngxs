@@ -6,4 +6,4 @@ export const directorProviders = [
         provide: DirectorRepository,
         useClass: HttpDirectorService
     }
-]
+];

@@ -13,6 +13,6 @@ const modules = [MatToolbarModule, ButtonComponent, MatIconModule, MatButtonModu
     imports: [...modules],
     templateUrl: "./navbar.component.html",
     styleUrl: "./navbar.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent  {}
+export class NavbarComponent {}
