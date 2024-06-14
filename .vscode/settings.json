@@ -1,0 +1,18 @@
+{
+    "editor.tabSize": 4,
+    "diffEditor.wordWrap": "on",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "editor.rulers": [
+        100,
+        120
+    ],
+}

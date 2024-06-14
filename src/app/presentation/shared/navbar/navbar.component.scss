@@ -1,0 +1,12 @@
+:host {
+    .person,
+    .timer {
+        @apply flex items-center gap-x-1;
+        mat-icon {
+            @apply text-lg leading-5 w-5 h-5 text-center font-normal text-white #{!important};
+        }
+        span {
+            @apply text-sm text-white font-semibold font-text pt-[2px];
+        }
+    }
+}

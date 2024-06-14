@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../node_modules/@aiandralves/tivic-ui/assets/theme/button";
+
+* {
+    font-family:
+        Nunito Sans,
+        sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    @apply m-0 font-text bg-body text-base;
+}
+
+.main {
+    @apply container h-auto w-[800px] bg-white rounded-lg py-4 px-6 mt-[calc(64px+1rem)];
+}
+
+.mat-mdc-form-field {
+    margin-bottom: -1.25em;
+    .mdc-notched-outline__notch {
+        border-right: 0px !important;
+    }
+}

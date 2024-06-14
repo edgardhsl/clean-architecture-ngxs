@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "@aiandralves/eslint-config/node",
+        "plugin:jest/recommended"
+    ],
+    "plugins": [
+        "jest"
+    ],
+    "rules": {
+        "dot-notation": "off",
+        "space-before-function-paren": [
+            "error",
+            "always"
+        ]
+    }
+}
