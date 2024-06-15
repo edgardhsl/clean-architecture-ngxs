@@ -1,3 +1,4 @@
+import { HttpFilter } from "@/data/base/http-filter";
 import { RestClientUtil } from "@/domain/request/utils/rest-client.util";
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
@@ -9,10 +10,13 @@ import { Observable } from "rxjs";
 })
 export class HttpClientUtil<T> implements RestClientUtil<T> {
     private _httpClient = inject(HttpClient);
+    private _filter = inject(HttpFilter<T>);
     private _api = environment.apiRoot;
 
-    get (url: string, filter?: any): Observable<T | T[]> {
-        return this._httpClient.get<T | T[]>(`${this._api}/${url}`, { params: { filter } });
+    get (url: string, filter?: T): Observable<T | T[]> {
+        return this._httpClient.get<T | T[]>(`${this._api}/${url}`, {
+            params: this._filter.build(filter)
+        });
     }
 
     post (url: string, body: T): Observable<T> {

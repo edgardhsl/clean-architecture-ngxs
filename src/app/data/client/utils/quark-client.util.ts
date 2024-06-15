@@ -15,6 +15,10 @@ import { Injectable } from "@angular/core";
 import { environment } from "@env/environment.prod";
 import { Observable } from "rxjs";
 
+export interface QuarkFilter {
+    getFilters(): IFilter;
+}
+
 @Injectable({
     providedIn: "root"
 })
@@ -23,13 +27,13 @@ export class QuarkClientUtil<T> implements RestClientUtil<T> {
         Quark.initializeHttpClient(this._httpClient);
     }
 
-    get (url: string, filter?: IFilter): Observable<T> {
+    get (url: string, filter?: QuarkFilter): Observable<T> {
         const quark = new Quark(
             new HttpGet({
                 url: new Url({
                     url,
                     environment,
-                    filter
+                    filter: filter?.getFilters()
                 })
             }),
             new HttpResponse([] as T | {} as T | T)

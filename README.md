@@ -1,8 +1,9 @@
 -   data
 
-    -   rest-client-provider
-    -   http-client
-    -   quark-client
+    -   client-provider
+    -   utils
+        -   http-client
+        -   quark-client
 
 -   core
 
@@ -13,10 +14,8 @@
         -   rest-client-impl
         -   rest-client-util
 
-    use-cases -
+## Observações
 
-ele fica fora porque ele é implementação da ferramentas
-
-domain
-infra
-application
+-   O httpClient e o quark ficam na camada `data` porque utilizam ferramentas externas e na camada domínio só pode conter
+    regras de negócio sem nenhuma comunicação com nada externo;
+-   O IFilter é uma implementação de uma biblioteca externa, então como vou implementar ela na camada de domínio?

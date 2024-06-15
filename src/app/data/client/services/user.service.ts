@@ -12,8 +12,8 @@ export class UserService implements UserRepository {
         private _restClient: RestClient<UserDTO>
     ) {}
 
-    find (): Observable<UserDTO[]> {
-        return this._restClient.get("users") as Observable<UserDTO[]>;
+    find (filter?: UserDTO): Observable<UserDTO[]> {
+        return this._restClient.get("users", filter) as Observable<UserDTO[]>;
     }
 
     get (id: string): Observable<UserDTO> {
