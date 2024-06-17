@@ -2,6 +2,7 @@ import { environment } from "@env/environment.prod";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Observable, from, map } from "rxjs";
 import { HttpApiClient } from "../http-api-client";
+import { HttpFilter } from "../http-filter";
 
 export class AxiosHttpClient implements HttpApiClient {
     private axiosInstance: AxiosInstance;
@@ -12,11 +13,17 @@ export class AxiosHttpClient implements HttpApiClient {
             baseURL: this._buildUrl(environment),
             timeout: 10000
         });
+
+        console.log(`
+        -------------------------------------
+        - Usando o AxiosHttpClient.
+        -------------------------------------
+        `);
     }
 
-    get<T> (url: string, filter?: any): Observable<T | T[]> {
+    get<T> (url: string, filter?: HttpFilter): Observable<T | T[]> {
         const config: AxiosRequestConfig = {
-            params: filter
+            params: filter.getFilters()
         };
         return from(this.axiosInstance.get<T | T[]>(url, config))
             .pipe(map((response: AxiosResponse) => response.data));

@@ -6,18 +6,18 @@
             </tvc-button>
         </div>
         <div class="">
-            <table mat-table [dataSource]="users()">
+            <table mat-table [dataSource]="dataSource$ | async">
                 <ng-container matColumnDef="id">
                     <th mat-header-cell *matHeaderCellDef> ID </th>
-                    <td mat-cell *matCellDef="let item"> {{ item.id || "-" }} </td>
+                    <td mat-cell *matCellDef="let item"> {{ item.cdUsuario || "-" }} </td>
                 </ng-container>
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> Nome </th>
-                    <td mat-cell *matCellDef="let item"> {{ item.name || "-" }} </td>
+                    <td mat-cell *matCellDef="let item"> {{ item.nmLogin || "-" }} </td>
                 </ng-container>
                 <ng-container matColumnDef="email">
                     <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                    <td mat-cell *matCellDef="let item"> {{ item.email || "-" }} </td>
+                    <td mat-cell *matCellDef="let item"> {{ item.nmEmail || "-" }} </td>
                 </ng-container>
                 <ng-container matColumnDef="edit">
                     <th mat-header-cell *matHeaderCellDef> Editar </th>

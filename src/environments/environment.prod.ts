@@ -1,10 +1,8 @@
 export const environment = {
     production: true,
     protocol: "http",
-    port: 3333,
+    port: 1004,
     host: "localhost",
-    context: "tivic",
-    apiroot: "api/v1",
-
-    apiRoot: "http://localhost:3000"
+    context: "etransito",
+    apiroot: "api/v2"
 };

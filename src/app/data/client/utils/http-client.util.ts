@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 export class HttpClientUtil<T> implements RestClientUtil<T> {
     private _httpClient = inject(HttpClient);
     private _filter = inject(HttpFilter<T>);
-    private _api = environment.apiRoot;
+    private _api = environment.apiroot;
 
     get (url: string, filter?: T): Observable<T | T[]> {
         return this._httpClient.get<T | T[]>(`${this._api}/${url}`, {

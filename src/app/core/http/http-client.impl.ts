@@ -1,3 +1,4 @@
+import { HttpFilter } from "@aiandralves/tivic-ui";
 import { Observable } from "rxjs";
 import { HttpClient } from "./http-api";
 import { HttpApiClient } from "./impl/http-api-client";
@@ -9,7 +10,7 @@ export class HttpClientImpl implements HttpClient {
         }
     }
 
-    get<T> (url: string, filter?: any): Observable<T | T[]> {
+    get<T> (url: string, filter?: HttpFilter): Observable<T | T[]> {
         return this.client.get<T>(url, filter);
     }
 
