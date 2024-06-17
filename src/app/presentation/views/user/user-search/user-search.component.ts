@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, Component, Signal, inject } from "@angular/cor
 import { MatTableModule } from "@angular/material/table";
 import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
+import { HttpClient } from "@/core/http/http-api";
 
 const modules = [
     ...sharedModule,
@@ -22,6 +23,7 @@ const modules = [
 export class UserSearchComponent {
     private _store = inject(Store);
     private _router = inject(Router);
+    private _httpClient = inject(HttpClient);
 
     columns: string[] = ["id", "name", "email", "edit"];
 
